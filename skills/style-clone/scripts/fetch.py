@@ -7,7 +7,8 @@ Three ways in, easiest first:
   2. A YouTube handle (no key): lists the channel's Shorts (not long-form) with view counts and takes the top ones.
      YouTube rounds the counts it lists, so near ties are ranked approximately.
        python3 fetch.py <out_dir> --handle @name --platform youtube
-  3. An Instagram or TikTok handle (needs an Apify token in APIFY_TOKEN, costs a few cents a run):
+  3. An Instagram or TikTok handle (needs a free Apify account's token in APIFY_TOKEN; about 10 cents of its
+     free monthly credit per Instagram run):
        python3 fetch.py <out_dir> --handle @name --platform instagram
 
 Writes <out_dir>/videos/*.mp4 and <out_dir>/videos.json (url, views, likes, date, file), most viewed first.
@@ -95,7 +96,8 @@ NO_KEY = """No APIFY_TOKEN found, so I can't list a creator's {platform} videos 
 Two ways forward:
   a) Open their profile, sort by most viewed (or just pick the ones you love), copy 10 links and run:
        python3 fetch.py <out_dir> <link> <link> ...
-  b) Get an Apify token (apify.com, Settings > API & Integrations) and put it in ~/.config/style-clone/.env as
+  b) Make a free Apify account (apify.com, no card, $5 of usage a month; a run here uses about 10 cents), copy the
+     token from Settings > API & Integrations, and put it in ~/.config/style-clone/.env as
        APIFY_TOKEN=...
      then run the same command again."""
 

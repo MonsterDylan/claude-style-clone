@@ -28,9 +28,11 @@ See a full one in [`examples/dylanjwatkins/STYLE.md`](examples/dylanjwatkins/STY
 
 That is enough to run it on YouTube Shorts from a handle, or on any 10 video links or files.
 
-Two optional keys:
+For an Instagram or TikTok handle, add one free thing:
 
-- An **Apify** token, only if you want to type an Instagram or TikTok handle and have it find the top videos for you. A run costs a few cents. Without it, paste 10 links instead.
+- A free **Apify** account. No credit card. The free plan includes $5 of usage every month, and one run of this skill on Instagram uses about 10 cents of it (40 reels at $0.0026 each on the free plan, as of November 2026). So the free credit covers dozens of creators a month. Setup is below. Don't want an account? Paste 10 links instead.
+
+And one optional key:
 - A **Groq** API key (free tier works), only if you want words per minute in the numbers. Everything else runs without it.
 
 This will not work as an upload to claude.ai on the web. It needs a real shell to download and process video.
@@ -49,7 +51,17 @@ Or paste this into Claude Code and let it do the same thing:
 
 > Clone https://github.com/MonsterDylan/claude-style-clone and run its install.sh. If ffmpeg or yt-dlp is missing, install them for me.
 
-Optional keys go in `~/.config/style-clone/.env`. The installer creates the file with both lines blank.
+### Add your free Apify token (for Instagram and TikTok handles)
+
+1. Sign up at [apify.com](https://apify.com). The free plan needs no card.
+2. Go to Settings, then API & Integrations, and copy your Personal API token.
+3. Open `~/.config/style-clone/.env` (the installer created it) and paste the token after `APIFY_TOKEN=`.
+
+   ```bash
+   open -e ~/.config/style-clone/.env
+   ```
+
+The Groq key, if you want it, goes in the same file.
 
 ## Use it
 
@@ -74,8 +86,8 @@ When it finishes it offers to add one line to your project's `CLAUDE.md`, so eve
 | A YouTube handle | None | Yes. Takes the channel's Shorts, not long-form |
 | 10 links (Instagram, TikTok, YouTube) | None | Yes, on Instagram and YouTube links |
 | Video files on your machine | None | Yes |
-| An Instagram handle | Apify token | Yes |
-| A TikTok handle | Apify token | Yes, on one account |
+| An Instagram handle | Free Apify account | Yes |
+| A TikTok handle | Free Apify account | Yes, on one account. Cost per run not checked |
 
 The handle paths rank the creator's 40 most recent videos by views and keep the top 10. That is the top of their recent work, not of all time. `--pool 80` looks further back.
 

@@ -46,7 +46,10 @@ Ask for one thing only if it was not given: whose style. Accept any of these, an
   their recent work", not of all time. Say so in the style file. `--pool 80` looks further back, `--top N` changes
   how many.
 - No Apify token and an Instagram or TikTok handle: the script prints the two ways forward. Relay them plainly.
-  The no-key way is: open the profile, pick the 10 videos they like most (or the most viewed), paste the links.
+  One: a free Apify account (no card, $5 of usage a month, a run uses about 10 cents). Walk them through it: sign
+  up at apify.com, Settings, API & Integrations, copy the Personal API token, and paste it after `APIFY_TOKEN=` in
+  `~/.config/style-clone/.env` themselves. Do not ask them to paste the token into the chat. Two: no account, open
+  the profile, pick the 10 videos they like most (or the most viewed), paste the links.
 - Downloads get blocked sometimes, Instagram most of all. If some fail, carry on when at least 5 came down, and
   say how many you have. Under 5: ask them to save the videos from the app and give you the files.
 - One creator per style. If they name several, ask which one first: mixing three styles produces mush. A second
